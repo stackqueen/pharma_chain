@@ -1,231 +1,110 @@
-# Pharma Supply Chain DApp
+# 💊 Pharma Supply Chain DApp
 
-A decentralized application (DApp) for managing pharmaceutical supply chains using Ethereum blockchain technology. This project enables secure, transparent tracking of pharmaceutical items from manufacturing to retail, with role-based access for manufacturers, wholesalers, and retailers.
+A decentralized application (DApp) for managing pharmaceutical supply chains using **Ethereum blockchain technology**.  
+This project enables secure, transparent tracking of pharmaceutical items from manufacturing to retail,  
+with role-based access for manufacturers, wholesalers, and retailers.
 
-## Features
+---
 
-- **Item Management**: Create pharmaceutical items with detailed metadata including expiry dates, manufacturing dates, quantities, and roles
-- **Role-Based System**: Support for Manufacturer, Wholesaler, and Retailer roles in the supply chain
-- **Blockchain Integration**: Smart contract-based item tracking and transactions on Ethereum
-- **Wallet Integration**: MetaMask integration for secure wallet connections and transactions
-- **REST API**: Backend API for interacting with the blockchain contract
-- **Responsive UI**: React-based frontend with mobile-friendly design
-- **Real-time Updates**: Live fetching and updating of item statuses and ownership
+## 📊 Project Presentation
 
-## Tech Stack
+You can view the project presentation here:  
+👉 [Pharma Supply Chain DApp Presentation](./docs/Pharma_SupplyChain_Presentation.pptx)
+
+> Upload your `.pptx` file into a folder named `docs/` in your repository and rename it to `Pharma_SupplyChain_Presentation.pptx`.
+
+---
+
+## 🚀 Features
+
+- **Item Management** – Create and manage items with full metadata (name, expiry, manufacturing date, quantity, role).  
+- **Role-Based System** – Supports Manufacturer, Wholesaler, and Retailer roles.  
+- **Blockchain Integration** – Smart contract–based item creation and ownership tracking.  
+- **Wallet Integration** – Connects seamlessly with MetaMask for secure blockchain transactions.  
+- **REST API** – Backend API for smart contract interactions.  
+- **Responsive UI** – React + Vite frontend with modern design.  
+- **Real-time Updates** – Live fetching and updating of item status and ownership.
+
+---
+
+## 🧠 Tech Stack
 
 ### Blockchain
-- **Solidity**: Smart contract development
-- **Truffle**: Development framework for Ethereum
-- **Ganache**: Local blockchain for development
+- **Solidity** – Smart contract development  
+- **Truffle** – Ethereum development framework  
+- **Ganache** – Local blockchain simulator  
 
 ### Backend
-- **Node.js**: Runtime environment
-- **Express.js**: Web framework for API
-- **Web3.js**: Ethereum JavaScript API
-- **CORS**: Cross-origin resource sharing
+- **Node.js** – JavaScript runtime  
+- **Express.js** – Web framework for API  
+- **Web3.js / Ethers.js** – Blockchain interaction  
+- **CORS** – Cross-Origin Resource Sharing  
 
 ### Frontend
-- **React**: UI library with hooks
-- **Vite**: Build tool and development server
-- **Ethers.js**: Ethereum wallet and provider library
-- **Axios**: HTTP client for API calls
+- **React (Vite)** – User interface  
+- **Axios** – API integration  
+- **Ethers.js** – Wallet and blockchain provider  
 
-## Prerequisites
+---
 
-Before running this project, ensure you have the following installed:
+## ⚙️ Prerequisites
 
-- **Node.js** (v16 or higher)
-- **npm** or **yarn**
-- **MetaMask** browser extension
-- **Ganache** (for local blockchain development)
-- **Truffle** (`npm install -g truffle`)
+Ensure you have installed:
+- Node.js (v16 or higher)
+- npm or yarn
+- MetaMask browser extension
+- Ganache
+- Truffle (`npm install -g truffle`)
 
-## Installation
+---
 
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd pharma-supply-chain
-   ```
+## 📦 Installation
 
-2. **Install dependencies for each component:**
+```bash
+git clone <repository-url>
+cd pharma-supply-chain
 
-   **Backend:**
-   ```bash
-   cd Backend
-   npm install
-   cd ..
-   ```
 
-   **Frontend:**
-   ```bash
-   cd Frontend
-   npm install
-   cd ..
-   ```
+# 🧩 Pharma Supply Chain DApp — Installation & Setup
 
-   **Blockchain:**
-   ```bash
-   cd Blockchain
-   npm install
-   cd ..
-   ```
+# 1️⃣ Clone the repository
+git clone <repository-url>
+cd pharma-supply-chain
 
-## Setup
+# 2️⃣ Install dependencies for all modules
+echo "Installing dependencies..."
+cd Blockchain && npm install && cd ..
+cd Backend && npm install && cd ..
+cd Frontend && npm install && cd ..
 
-### 1. Blockchain Setup
+# 3️⃣ Start Ganache (manually)
+# Open Ganache and create a new workspace
+# Note RPC URL (default: http://127.0.0.1:8545)
 
-1. **Start Ganache:**
-   - Open Ganache and create a new workspace
-   - Note the RPC server URL (default: `http://127.0.0.1:8545`)
+# 4️⃣ Deploy the smart contract
+cd Blockchain
+truffle migrate --reset
+cd ..
 
-2. **Deploy Smart Contract:**
-   ```bash
-   cd Blockchain
-   truffle migrate --reset
-   ```
-   - This will deploy the SupplyChain contract and generate build artifacts
+# 5️⃣ Configure backend environment variables
+cd Backend
+cat <<EOT >> .env
+GANACHE_URL=http://127.0.0.1:8545
+CONTRACT_ADDRESS=<deployed-contract-address>
+CONTRACT_ABI_PATH=../Blockchain/build/contracts/SupplyChain.json
+PORT=3001
+EOT
 
-3. **Update Environment Variables:**
-   - Copy the contract address from Truffle deployment output
-   - Create a `.env` file in the `Backend` directory:
-     ```
-     GANACHE_URL=http://127.0.0.1:8545
-     CONTRACT_ADDRESS=<deployed-contract-address>
-     CONTRACT_ABI=<path-to-abi-json>
-     ```
+# 6️⃣ Start the backend server
+npm start &
+cd ..
 
-### 2. Backend Setup
+# 7️⃣ Start the frontend (in a new terminal or same script)
+cd Frontend
+npm run dev
 
-1. **Configure Environment:**
-   - Ensure `.env` file is created with the correct contract details
-
-2. **Start the Backend Server:**
-   ```bash
-   cd Backend
-   npm start
-   ```
-   - Server will run on `http://localhost:3001`
-
-### 3. Frontend Setup
-
-1. **Start the Development Server:**
-   ```bash
-   cd Frontend
-   npm run dev
-   ```
-   - Frontend will be available at `http://localhost:5173`
-
-## Usage
-
-1. **Connect Wallet:**
-   - Open the frontend in your browser
-   - Click "Connect MetaMask" and approve the connection
-
-2. **Create Items:**
-   - Navigate to "Create/Manage" tab
-   - Fill in item details (name, price, expiry date, manufacturing date, quantity, role)
-   - Click "Create Item"
-
-3. **Put Items for Sale:**
-   - Enter SKU and desired price
-   - Click "Put For Sale"
-
-4. **View and Buy Items:**
-   - Switch to "View/Buy" tab
-   - Browse available items
-   - Click "Buy Item" to purchase
-
-## API Endpoints
-
-The backend provides the following REST API endpoints:
-
-- `GET /items` - Retrieve all items
-- `POST /create-item` - Create a new item
-  ```json
-  {
-    "name": "Aspirin",
-    "price": 1000000000000000000,
-    "expiryDate": "2024-12-31",
-    "manufacturingDate": "2024-01-01",
-    "quantity": 100,
-    "role": 0,
-    "from": "0x..."
-  }
-  ```
-- `POST /buy-item` - Purchase an item
-- `POST /put-for-sale` - List an item for sale
-- `GET /item/:sku/status` - Get specific item details
-- `GET /welcome` - Welcome message
-
-## Smart Contract Details
-
-### SupplyChain Contract
-
-**Key Functions:**
-- `createItem(string _name, uint _price, uint _expiryDate, uint _manufacturingDate, uint _quantity, uint _role)` - Create new item
-- `putForSale(uint _sku, uint _price)` - List item for sale
-- `buyItem(uint _sku)` - Purchase item
-- `getItem(uint _sku)` - Retrieve item details
-- `totalItems()` - Get total number of items
-
-**Item Structure:**
-```solidity
-struct Item {
-    uint sku;
-    string name;
-    uint price;
-    uint expiryDate;
-    uint manufacturingDate;
-    uint quantity;
-    address owner;
-    Status status;
-    Role role;
-}
-```
-
-**Enums:**
-- `Status`: Created, ForSale, Sold
-- `Role`: Manufacturer, Wholesaler, Retailer
-
-## Project Structure
-
-```
-pharma-supply-chain/
-├── Backend/
-│   ├── server.js
-│   ├── package.json
-│   └── ...
-├── Blockchain/
-│   ├── contracts/
-│   │   └── SupplyChain.sol
-│   ├── migrations/
-│   ├── truffle-config.js
-│   └── ...
-├── Frontend/
-│   ├── src/
-│   │   ├── App.jsx
-│   │   ├── utils/
-│   │   │   └── blockchain.js
-│   │   └── ...
-│   ├── package.json
-│   └── ...
-├── TODO.md
-├── Frontend_TODO.md
-└── README.md
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
+# 🎉 Done!
+# Frontend: http://localhost:5173
+# Backend:  http://localhost:3001
+# Ganache:  http://127.0.0.1:8545
 
