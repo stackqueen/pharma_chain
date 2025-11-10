@@ -6,12 +6,12 @@ with role-based access for manufacturers, wholesalers, and retailers.
 
 ---
 
-## 📊 Project Presentation
+## 📊 Project Presentation & Report
 
-You can view the project presentation here:  
-👉 [Pharma Supply Chain DApp Presentation](./docs/Pharma_SupplyChain_Presentation.pptx)
+You can view the project materials here:  
 
-> Upload your `.pptx` file into a folder named `docs/` in your repository and rename it to `Pharma_SupplyChain_Presentation.pptx`.
+👉 [Presentation](./docs/Pharma_SupplyChain_Presentation.pptx)  
+👉 [Repor](./docs/Pharma_Supply_Chain_Blockchain_Report_Slesha_Panda_Detailed.docx)
 
 ---
 
