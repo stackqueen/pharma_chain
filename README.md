@@ -11,7 +11,7 @@ with role-based access for manufacturers, wholesalers, and retailers.
 You can view the project materials here:  
 
 👉 [Presentation](./docs/Pharma_SupplyChain_Presentation.pptx)  
-👉 [Repor](./docs/Pharma_Supply_Chain_Blockchain_Report_Slesha_Panda_Detailed.docx)
+👉 [Report](./docs/Pharma_Supply_Chain_Blockchain_Report_Slesha_Panda_Detailed.docx)
 
 ---
 
