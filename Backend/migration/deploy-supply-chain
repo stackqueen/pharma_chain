@@ -1,0 +1,7 @@
+@"
+const SupplyChain = artifacts.require('SupplyChain');
+
+module.exports = function (deployer) {
+  deployer.deploy(SupplyChain);
+};
+"@ | Set-Content -Path .\migrations\2_deploy_supplychain.js -Encoding UTF8
